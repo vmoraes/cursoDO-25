@@ -2,6 +2,14 @@ pipeline {
     agent any
     
     stages{
+        stage('') {
+            steps {
+                script {
+                    slackSend(color: 'warning', message: "Para aprovar este deploy, clique aqui: ${JOB_URL} - [Janela de 5 minutos]", channel: 'devops-vitor')
+                }
+            }
+        }   
+
         stage('Limpando a workspace') {
             steps {
                 sh 'pwd'
